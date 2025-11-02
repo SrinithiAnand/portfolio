@@ -1,0 +1,293 @@
+<!-- Srinithi Portfolio – updated with status badge and real image path -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Srinithi Anand – Data Engineer & Analyst</title>
+  <link rel="stylesheet" href="srinithi-css-file.css">
+  <style>
+    html { scroll-behavior: smooth; }
+    :root{
+      --bg:warmwhite; /* alias */
+      --warm-white:#fffaf7;
+      --warm-lilac:#f5ecff; /* very light warm lilac */
+      --ink:#0b1220;       /* dark blue/near-black for text */
+      --ink-soft:#1e2a44;
+      --brand:#273e72;     /* deep blue for accents */
+      --chip:#eef1f5;
+      --card:#ffffff;
+      --shadow:0 8px 24px rgba(17, 24, 39, .08);
+      --dark-box:#231f2b;  /* for experience side box */
+      --light-on-dark:#f8f8ff;
+      --ok:#1dbf73;
+    }
+    *{box-sizing:border-box}
+    body { margin:0; background: var(--warm-white); color: var(--ink); font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+
+    /* NAV */
+    #navbar { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(6px); background: rgba(255,250,247,.85); border-bottom:1px solid #eadffb; }
+    #navbar .nav-links a { cursor: pointer; color: var(--brand); }
+
+    /* HERO */
+    .hero { padding: 56px 24px; background: linear-gradient(180deg, var(--warm-lilac) 0%, var(--warm-white) 100%); }
+    .hero-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 36px; align-items: center; }
+    .hero h1 { margin: 0 0 8px; color: var(--ink); font-size: 2rem; line-height: 1.2; }
+    .headline { font-weight:600; opacity:.95; color: var(--ink-soft); }
+    .badge { display:inline-block; background:#e9f2ff; color:#0b5ed7; padding:6px 10px; border-radius:999px; font-size:.9rem; margin:8px 6px 0 0; }
+    .stat-wrap { display:flex; gap:16px; flex-wrap:wrap; margin-top:18px; }
+    .stat { background:#f6f7f9; color:var(--ink); padding:12px 14px; border-radius:8px; min-width:140px; text-align:center; box-shadow: var(--shadow); }
+    .stat .n { font-weight:700; font-size:1.1rem; display:block; }
+    .hero-img { width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:16px; box-shadow: var(--shadow); }
+    .hero-img-wrap { position:relative; }
+
+    /* Status badge (fills empty space) */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #ffffff;
+      color: var(--ink);
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: .95rem;
+      font-weight: 600;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+      margin: 6px 0 18px;
+      border: 1px solid #e9e2f7;
+    }
+    .status-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--ok);
+      box-shadow: 0 0 0 4px rgba(29,191,115,.15);
+    }
+
+    /* Sections */
+    section { padding: 60px 24px; }
+    .container { max-width: 1000px; margin: 0 auto; background: var(--card); border-radius:16px; box-shadow: var(--shadow); padding:28px; }
+    .section-title { margin:0 0 12px; color: var(--ink); }
+    .two-col { display:grid; grid-template-columns: 1fr; gap:18px; }
+    @media (min-width: 900px){ .two-col { grid-template-columns: 1fr 1fr; } }
+    ul { margin: 8px 0 0 18px; }
+
+    /* Skills chips */
+    .chips { display:flex; flex-wrap:wrap; gap:8px; }
+    .chip { background:var(--chip); color:var(--ink); padding:6px 10px; border-radius:999px; font-size:.9rem; }
+    .chip a { color:inherit; text-decoration:none; }
+
+    /* Experience layout */
+    .exp-grid{ display:grid; grid-template-columns: 1fr; gap:24px; }
+    @media (min-width: 900px){ .exp-grid{ grid-template-columns: 1.2fr .8fr; } }
+    .exp-card{ background:var(--card); border-radius:14px; padding:18px; box-shadow: var(--shadow); }
+    .what-box{ background: var(--dark-box); color: var(--light-on-dark); border-radius:14px; padding:20px; box-shadow: var(--shadow); }
+    .what-box h4{ color: var(--light-on-dark); margin-top:0; }
+    .what-box li{ line-height:1.6; }
+
+    /* Links */
+    a{ color: var(--brand); }
+    .logo, .logo-text, .logo-icon { color: var(--ink) !important; }
+    .logo-text{ font-weight:700; font-size:1rem; }
+    /* Ensure links on light background are dark */
+    .container a, #contact a, .chips .chip a { color: var(--brand) !important; }
+    /* Keep links readable inside dark box */
+    .what-box a{ color: var(--light-on-dark) !important; text-decoration: underline; }
+
+    /* Small screens */
+    @media (max-width: 899px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .status-badge{ font-size: .88rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="logo">
+        <div class="logo-icon">📊</div>
+        <div class="logo-text">Srinithi Anand</div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#skills">Project</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO: left text, right image -->
+  <section id="home" class="hero">
+    <div class="hero-grid">
+      <div>
+        <!-- NEW: Status badge to remove empty space and engage -->
+        <div class="status-badge">
+          <span class="status-dot"></span>
+          Available for new opportunities 
+        </div>
+
+        <h1>Srinithi Anand Prem Anand</h1>
+        <p class="headline">Data Engineer | Data Analyst | MSc Computer Science @ Northumbria</p>
+        <p class="headline">Expert in ETL & Dashboarding • Helping Businesses Uncover Insights & Drive Growth • Open to Full-time Roles in UK/EU</p>
+        <div class="status-badge">
+            • Right to work in the UK • Based in Newcastle upon Tyne • Open to relocate across UK
+          </div>
+        <div class="stat-wrap">
+          <div class="stat"><span class="n">1 year 8 months</span><span>Experience</span></div>
+          <div class="stat"><span class="n">15+ workflows</span><span>Automated ETL</span></div>
+          <div class="stat"><span class="n">30–40%</span><span>Runtime improvement</span></div>
+        </div>
+
+        <div style="margin-top:16px" class="chips">
+          <span class="chip">Newcastle, UK</span>
+          <span class="chip">She/Her</span>
+          <span class="chip"><a href="mailto:srinuanand.p@gmail.com">srinuanand.p@gmail.com</a></span>
+          <span class="chip">+44 7586 393058</span>
+        </div>
+      </div>
+
+      <div class="hero-img-wrap">
+        <!-- Set to your real image path (adjust extension if needed) -->
+        <img class="hero-img" src="D:/Portfolio/2147_titan_folio/2147_titan_folio/images/image.jpg" alt="" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About</h2>
+      <div class="two-col">
+        <div>
+          <p>MSc Computer Science graduate with hands-on experience in databases, data analytics, and software development. Skilled in SQL, Python, BI reporting and ETL tools, with a strong understanding of data management and problem-solving. Quick learner with experience working in cross-functional teams, supporting projects from data preparation to reporting. Highly motivated to start a full-time role, having right to work in the UK and apply technical skills to real business problems and am willing to relocate all over the UK.</p>
+        </div>
+        <div>
+          <p>Data Engineer | Data Analyst | MSc Computer Science @ Northumbria | Expert in ETL & Dashboarding | Helping Businesses Uncover Insights & Drive Growth | Open to Full-time Roles in UK/EU</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="container">
+      <h2 class="section-title">Education</h2>
+      <div class="two-col">
+        <div>
+          <h3>MSc in Advanced Computer Science</h3>
+          <p><strong>Northumbria University</strong>, Newcastle upon Tyne, UK — <em>2024–2025</em></p>
+          <ul>
+            <li>Modules: Machine Learning, Wireless & Network Security, Advanced Programming, Big Data & Cloud Computing, Advanced Databases, Research Methods & Project</li>
+            <li>Dissertation: Privacy in Pet Wearables — A Comparative Policy Analysis of Data Practices from 2019 to 2025</li>
+          </ul>
+        </div>
+        <div>
+          <h3>B.Tech in Information Technology</h3>
+          <p><strong>SSIET</strong>, India — <em>2019–2023</em></p>
+          <ul>
+            <li>Modules: DBMS, Data Structures & Algorithms, Web Technologies, OOP, Operating Systems, Software Engineering, Computer Networks, AI, Machine Learning, Cloud Computing, Cybersecurity, Mathematics for Computing, Applied Science</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="container">
+      <h2 class="section-title">Experience</h2>
+      <div class="exp-grid">
+        <div class="exp-card">
+          <h3>Data Engineer — IVY Mobility Solutions, India</h3>
+          <p><em>Worked with global clients across UK & Europe</em> • <strong>Feb 2022 – Nov 2023</strong> • <strong>1 year 8 months</strong></p>
+          <h4>Key Achievements</h4>
+          <ul>
+            <li>Reduced ETL runtimes by <strong>30–40%</strong> by optimising SQL and redesigning pipelines</li>
+            <li>Delivered <strong>15+ automated ETL</strong> workflows supporting analytics dashboards used by management</li>
+            <li>Consolidated APIs, CSV/Excel and SQL sources into a unified data warehouse</li>
+            <li>Built <strong>star & snowflake</strong> schemas enabling faster BI reporting and less manual prep</li>
+            <li>Produced documentation and supported production incident resolution with root-cause analysis</li>
+            <li>Partnered with data scientists & analysts to deliver analytics-ready datasets</li>
+          </ul>
+        </div>
+        <aside class="what-box">
+          <h4>What I Can Do</h4>
+          <ul>
+            <li>Develop SSIS & Pentaho ETL jobs for enterprise retail platforms</li>
+            <li>Design logical & physical data models aligned to business logic</li>
+            <li>Implement data validation rules ensuring accuracy before reporting</li>
+            <li>Monitor ETL pipelines and performance-tune stored procedures & queries</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+      <h4>Core Technical Skills</h4>
+      <ul>
+        <li><strong>ETL & Data Integration:</strong> SSIS, Pentaho Data Integration</li>
+        <li><strong>Databases:</strong> MS SQL Server, PostgreSQL, MySQL, Redshift</li>
+        <li><strong>Data Warehousing:</strong> Star & Snowflake schema design, dimensional modelling</li>
+        <li><strong>Reporting & BI:</strong> Power BI, Tableau, SSRS, Superset, Jaspersoft, Excel (Pivot, Power Query)</li>
+        <li><strong>Programming:</strong> SQL (T-SQL, PL/SQL), Python, Java, PHP</li>
+        <li><strong>Version Control & DevOps:</strong> GitLab, Jenkins, JIRA</li>
+        <li><strong>Methods:</strong> Data quality, performance tuning, data cleaning, Agile, documentation</li>
+      </ul>
+
+      <h4> Skills</h4>
+      <div class="chips">
+        <span class="chip">Tableau</span>
+        <span class="chip">Data Visualization & Reporting Automation</span>
+        <span class="chip">Data Modeling & Performance Optimization</span>
+        <span class="chip">PostgreSQL</span>
+        <span class="chip">SSIS</span>
+        <span class="chip">Query Optimization</span>
+        <span class="chip">Data Cleaning</span>
+        <span class="chip">Preprocessing & Transformation</span>
+        <span class="chip">Data Warehousing & Pipeline Optimization</span>
+        <span class="chip">Data Analysis</span>
+        <span class="chip">Business Intelligence (BI)</span>
+        <span class="chip">T-SQL</span>
+        <span class="chip">SSRS</span>
+        <span class="chip">VBA</span>
+        <span class="chip">Python</span>
+        <span class="chip">SSMS</span>
+        <span class="chip">Amazon Redshift</span>
+        <span class="chip">Apache Superset</span>
+        <span class="chip">NoSQL</span>
+        <span class="chip">Microsoft Power BI</span>
+        <span class="chip">Jenkins</span>
+        <span class="chip">Pentaho</span>
+        <span class="chip">GitHub</span>
+        <span class="chip">Supply Chain Analytics</span>
+        <span class="chip">Retail Sales Analysis</span>
+        <span class="chip">Report Design & Development</span>
+        <span class="chip">Project Management</span>
+        <span class="chip">Communication</span>
+        <span class="chip">Problem Solving</span>
+        <span class="chip">Leadership</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <p>Email: <a href="mailto:srinuanand.p@gmail.com">srinuanand.p@gmail.com</a> • Mobile: +44 7586 393058 • Newcastle, UK</p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/srinithi-anand-prem-anand-09465b1b4/" target="_blank">Profile</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-bottom">
+      <p>© 2025 Srinithi Anand. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
